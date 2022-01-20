@@ -14,9 +14,7 @@ function Layout({ children }) {
             <Header/>
             <div className={styles.layout}>
                 {showHideFl && <Menu/>}
-                <div className={styles.contents}>{children}
-                    <button onClick={toggleMenu}>메뉴 보이기</button>
-                </div>
+                <div className={styles.contents}>{children}</div>
             </div>
         </div>
     )
