@@ -14,7 +14,7 @@ function Layout({ children, activeMenu }) {
             <Header clickfn={toggleMenu}/>
             <div className={styles.layout}>
                 {showHideFl && <Menu activeMenu={activeMenu}/>}
-                <div className={styles.contents}>{children}</div>
+                <div className={[styles.contents, showHideFl ? styles.openMenu : ''].join(' ')}>{children}</div>
             </div>
         </div>
     )
