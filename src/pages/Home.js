@@ -13,11 +13,14 @@ function Home() {
 
     return (
         <Layout activeMenu="home">
-            <HomeFilter clickfn={changeFilter}/>
+            <HomeFilter clickfn={changeFilter} filter={filter}/>
             <ContentsLayout>
-                {youtubeData['data'].map(function (data, index) {
-                    return <ExploreCard key={`explore-card-${index}`} data={data} />;
-                })}
+                {youtubeData['data']
+                    .filter((data) => data.title.includes(filter))
+                    .map(function (data, index) {
+                        return <ExploreCard key={`explore-card-${index}`} data={data} />;
+                    })
+                }
             </ContentsLayout>
         </Layout>
     )

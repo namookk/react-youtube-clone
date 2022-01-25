@@ -1,8 +1,8 @@
 import styles from './HomeFilter.module.css';
-import ExploreCard from "../explore/ExploreCard";
+
 const filterArr = ['', 'BTS', 'LISA', '아이폰'];
 
-function HomeFilter({clickfn}){
+function HomeFilter({clickfn, filter}){
     return (
         <div className={styles.container}>
             <ul className={styles.filterul}>
@@ -10,8 +10,8 @@ function HomeFilter({clickfn}){
                     return (
                         <li
                         key={`home-filter-${idx}`}
-                        className={styles.filterli}
-                        onClick={clickfn(value)}
+                        className={[styles.filterli, filter === value ? styles.focus : ''].join(' ')}
+                        onClick={() => clickfn(value)}
                         >
                          {value == '' ? '전체' : value}
                         </li>
